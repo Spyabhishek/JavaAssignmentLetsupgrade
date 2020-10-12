@@ -1,0 +1,51 @@
+package com.company;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Scanner;
+
+public class Main {
+
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Enter your Name");
+                String Name = sc.nextLine();
+                System.out.print("Enter date of birth in YYYY-MM-DD: ");
+                String input = sc.nextLine();
+                LocalDate dob = LocalDate.parse(input);
+                System.out.println("Age is:" + getAge(dob));
+
+                System.out.println("Enter your Monthly Salary");
+                int Salary = sc.nextInt();
+
+                if(Salary==5L)
+                {
+                    System.out.println("you have to pay 20% tax");
+                }
+                else if (Salary==4L)
+                {
+                    System.out.println("you have to pay 15% tax");
+                }
+                else if (Salary==3L)
+                {
+                    System.out.println("you have to pay 10% tax");
+                }
+                else if (Salary==2L)
+                {
+                    System.out.println("you have to pay 5% tax");
+                }
+                else
+                {
+                    System.out.println("you don't have to pay tax");
+                }
+
+
+            }
+            public static int getAge(LocalDate dob) {
+                LocalDate curDate = LocalDate.now();
+                return Period.between(dob, curDate).getYears();
+
+            }
+
+        }
+
